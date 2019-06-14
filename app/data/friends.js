@@ -19,4 +19,4 @@
      }
  ];
 
- modeule.exports = newFriendArray;
+ module.exports = newFriendArray;
