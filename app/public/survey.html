@@ -1,161 +1,277 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Survey </title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<!-- Link static CSS -->
-	<link rel="stylesheet" type="text/css" href="./assets/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./javascript/app.js"></script>
+
+    <title>Survey</title>
 </head>
-<body class= "quiz">
-	<div class="container content">
-		<h1>Chris Harrison's Perfect Love Survey</h1>
-		<p>Take a quick survey to find your perfect match! These questions are answered by the numbers 1 through 5. If you disagree with a statement, answer 1. If you're here for the right reasons, put in a 5.</p>
-		<form>
-			<div class="form-group">
-				<input id="name" type="text" class="form-control" placeholder="Name (Required)">
-			</div>
-			<div class="form-group">
-				<input id="photo" type="text" class="form-control" placeholder="Link to Profile Photo (Required)">
-			</div>
-			<div class="form-group">
-				<label for="question1">Are you here for the right reasons?</label>
-				<select class="form-control" id="question1">
-					<option value="empty"></option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="question2">Are you worth fighting for?</label>
-				<select class="form-control" id="question2">
-					<option value="empty"></option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="question3">Are you a dental hygienist?</label>
-				<select class="form-control" id="question3">
-					<option value="empty"></option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="question4">Is your name Lauren?</label>
-				<select class="form-control" id="question4">
-					<option value="empty"></option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="question5">Do you really want the first impression rose?</label>
-				<select class="form-control" id="question5">
-					<option value="empty"></option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="question6">Will you sell Fit Tummy Tea on Instagram after this is done?</label>
-				<select class="form-control" id="question6">
-					<option value="empty"></option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="question7">Are you in love with two different people?</label>
-				<select class="form-control" id="question7">
-					<option value="empty"></option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="question8">Can I steal you for a second?</label>
-				<select class="form-control" id="question8">
-					<option value="empty"></option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="question9">Do you have a hard time opening up to people?</label>
-				<select class="form-control" id="question9">
-					<option value="empty"></option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="question10">Will you accept this rose?</label>
-				<select class="form-control" id="question10">
-					<option value="empty"></option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-			</div>
-		</form>
-		<div class="text-center">
-			<button id="submitBtn" type="submit" class="btn btn-success btn-lg">Submit</button>
+<body class = "quiz">
+    <!--questions-->
+    <div class="container">
+        <div class="question">
+            <p>Name (Required)</p>
+            <input class="form-control form-control-md" id="applicant-name" type="text" placeholder="Your Name Here">
+        </div>
+        <div class="question">
+            <p>Link to Photo Image (Required)</p>
+            <input class="form-control form-control-md" id="applicant-photo" type="text" placeholder="Picture Link">
+        </div>
+
+        <!--Question #1-->
+        <div class="question" id="Q01">
+            <p>Are you here for the right reasons?</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA01" id="Q01-Option1" value="1">
+                <label class="form-check-label" for="Q01-Option1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA01" id="Q01-Option2" value="2">
+                <label class="form-check-label" for="Q01-Option2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA01" id="Q01-Option3" value="3">
+                <label class="form-check-label" for="Q01-Option3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA01" id="Q01-Option4" value="4">
+                <label class="form-check-label" for="Q01-Option4">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA01" id="Q01-Option5" value="5">
+                <label class="form-check-label" for="Q01-Option5">5</label>
+            </div>
+        </div>
+
+        <!--Question #2-->
+        <div class="question" id="Q02">
+            <p>Bachelor (1), Bachelorette (2), or BIP (3)</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA02" id="Q02-Option1" value="1">
+                <label class="form-check-label" for="Q02-Option1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA02" id="Q02-Option2" value="2">
+                <label class="form-check-label" for="Q02-Option2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA02" id="Q02-Option3" value="3">
+                <label class="form-check-label" for="Q02-Option3">3</label>
+            </div>
+        </div>
+
+        <!--Question #3-->
+        <div class="question" id="Q03">
+            <p>How many Laurens will there be on the next season of the Bachelor</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA03" id="Q03-Option1" value="1">
+                <label class="form-check-label" for="Q03-Option1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA03" id="Q03-Option2" value="2">
+                <label class="form-check-label" for="Q03-Option2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA03" id="Q03-Option3" value="3">
+                <label class="form-check-label" for="Q03-Option3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA03" id="Q03-Option4" value="4">
+                <label class="form-check-label" for="Q03-Option4">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA03" id="Q03-Option5" value="5">
+                <label class="form-check-label" for="Q03-Option5">5</label>
+            </div>
+        </div>
+
+        <!--Question #4-->
+        <div class="question" id="Q04">
+            <p>Scale of 1-5 how hard does Chris Harrison work?</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA04" id="Q04-Option1" value="1">
+                <label class="form-check-label" for="Q04-Option1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA04" id="Q04-Option2" value="2">
+                <label class="form-check-label" for="Q04-Option2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA04" id="Q04-Option3" value="3">
+                <label class="form-check-label" for="Q04-Option3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA04" id="Q04-Option4" value="4">
+                <label class="form-check-label" for="Q04-Option4">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA04" id="Q04-Option5" value="5">
+                <label class="form-check-label" for="Q04-Option5">5</label>
+            </div>
+        </div>
+
+        <!--Question #5-->
+        <div class="question" id="Q05">
+            <p>What episode should Luke P have gone home on Hannah's season?</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA05" id="Q05-Option1" value="1">
+                <label class="form-check-label" for="Q05-Option1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA05" id="Q05-Option2" value="2">
+                <label class="form-check-label" for="Q05-Option2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA05" id="Q05-Option3" value="3">
+                <label class="form-check-label" for="Q05-Option3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA05" id="Q05-Option4" value="4">
+                <label class="form-check-label" for="Q05-Option4">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA05" id="Q05-Option5" value="5">
+                <label class="form-check-label" for="Q05-Option5">5</label>
+            </div>
+        </div>
+
+        <!--Question #6-->
+        <div class="question" id="Q06">
+            <p>How many interns does it take to set up a one on one?</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA06" id="Q06-Option1" value="1">
+                <label class="form-check-label" for="Q06-Option1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA06" id="Q06-Option2" value="2">
+                <label class="form-check-label" for="Q06-Option2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA06" id="Q06-Option3" value="3">
+                <label class="form-check-label" for="Q06-Option3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA06" id="Q06-Option4" value="4">
+                <label class="form-check-label" for="Q06-Option4">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA06" id="Q06-Option5" value="5">
+                <label class="form-check-label" for="Q06-Option5">5</label>
+            </div>
+        </div>
+
+        <!--Question #7-->
+        <div class="question" id="Q07">
+            <p>Will Mike be the next Bachelor?</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA07" id="Q07-Option1" value="1">
+                <label class="form-check-label" for="Q07-Option1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA07" id="Q07-Option2" value="2">
+                <label class="form-check-label" for="Q07-Option2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA07" id="Q07-Option3" value="3">
+                <label class="form-check-label" for="Q07-Option3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA07" id="Q07-Option4" value="4">
+                <label class="form-check-label" for="Q07-Option4">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA07" id="Q07-Option5" value="5">
+                <label class="form-check-label" for="Q07-Option5">5</label>
+            </div>
+        </div>
+
+        <!--Question #8-->
+        <div class="question" id="Q08">
+            <p>How many dates has Hannah G. gone on in BIP?</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA08" id="Q08-Option1" value="1">
+                <label class="form-check-label" for="Q08-Option1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA08" id="Q08-Option2" value="2">
+                <label class="form-check-label" for="Q08-Option2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA08" id="Q08-Option3" value="3">
+                <label class="form-check-label" for="Q08-Option3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA08" id="Q08-Option4" value="4">
+                <label class="form-check-label" for="Q08-Option4">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA08" id="Q08-Option5" value="5">
+                <label class="form-check-label" for="Q08-Option5">5</label>
+            </div>
+        </div>
+
+        <!--Question #9-->
+        <div class="question" id="Q09">
+            <p>How many kids will Ashley I. and Jared have?</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA09" id="Q09-Option1" value="1">
+                <label class="form-check-label" for="Q09-Option1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA09" id="Q09-Option2" value="2">
+                <label class="form-check-label" for="Q09-Option2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA09" id="Q09-Option3" value="3">
+                <label class="form-check-label" for="Q09-Option3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA09" id="Q09-Option4" value="4">
+                <label class="form-check-label" for="Q09-Option4">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA09" id="Q09-Option5" value="5">
+                <label class="form-check-label" for="Q09-Option5">5</label>
+            </div>
+        </div>
+
+        <!--Question #10-->
+        <div class="question" id="Q10">
+            <p>Will you accept this rose?</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA10" id="Q10-Option1" value="1">
+                <label class="form-check-label" for="Q10-Option1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA10" id="Q10-Option2" value="2">
+                <label class="form-check-label" for="Q10-Option2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA10" id="Q10-Option3" value="3">
+                <label class="form-check-label" for="Q10-Option3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA10" id="Q10-Option4" value="4">
+                <label class="form-check-label" for="Q10-Option4">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="QA10" id="Q10-Option5" value="5">
+                <label class="form-check-label" for="Q10-Option5">5</label>
+            </div>
 		</div>
 		
-		<!-- Modal after survey completion -->
-		<div id="bestFriendModal" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h3 class="modal-title">Your New Best Friend</h1>
-					</div>
-					<div class="modal-body">
-						<h2 id="bestFriend"></h2>
-						<img id="bestFriendPhoto" src="#">
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+        <!--Submit Button for Questions-->
+        <input class="btn btn-primary" id="submit-answers" type="submit" value="Submit">
+    	</div>		
 
 	<footer>
 		<div class="container">
-			<a href="/api/friends">Find your true love</a>
+			<a href="./api/friends">Find your true love</a>
 			<span>|</span>
 			<a href="https://github.com/kimgorc/friend_finder">GitHub Repo</a>
 		</div>
@@ -165,6 +281,3 @@
 </body>
 </html>
 
-
-		}
-	});
