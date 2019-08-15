@@ -1,48 +1,22 @@
-// ===============================================================================
-// LOAD DATA
-// We are linking our routes to a series of "data" sources.
-// These data sources hold arrays of information on table-data, waitinglist, etc.
-// ===============================================================================
+var express = require("express");
+var router = express.Router();
 
-var friendsData = require("../data/friends");
+router.use(express.urlencoded({ extended: true }));
+router.use(express.json());
 
+var friends = require("../data/friends.js");
 
-// ===============================================================================
-// ROUTING
-// ===============================================================================
+router.get("/api/friends", function(req, res) {
+    res.json(friends);
+});
 
-module.exports = function(app) {
-  // API GET Requests
+router.post("/api/friends", function(req, res) {
+    console.log(req.body);
+    var newFriend = req.body;
 
-  // ---------------------------------------------------------------------------
+    friends.push(newFriend);
 
-  app.get("/api/friends", function(req, res) {
-    res.json(friendsData);
-  });
+    res.json(true);
+});
 
-
- 
-
-  // API POST Requests
-  
-  // ---------------------------------------------------------------------------
-
-  app.post("/api/friends", function(req, res) {
-   
-    if (tableData.length < 5) {
-      friendsData.push(req.body);
-      res.json(true);
-    }
-
-  });
-
-  // ---------------------------------------------------------------------------
-
-
-  app.post("/api/clear", function(req, res) {
-    // Empty out the arrays of data
-    friendsData.length = 0;
-
-    res.json({ ok: true });
-  });
-};
+module.exports = router;

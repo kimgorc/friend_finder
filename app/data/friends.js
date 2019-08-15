@@ -1,9 +1,9 @@
  //data- inital is a "dummy" friend
 
- var newFriendArray = [
+ var friends = [
      {
          name: "John",
-         photo: " https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+         photo: "John",
          scores: [
              4,
              3,
@@ -16,7 +16,40 @@
              1,
              5
          ]
-     }
+     },
+
+     {
+        name: "Mike",
+        photo: "Mike",
+        scores: [
+            4,
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            5
+        ]
+    },
+    {
+    name: "Lauren",
+    photo: "Lauren",
+    scores: [
+        4,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        5
+    ]
+    } 
  ];
 
- module.exports = newFriendArray;
+ module.exports = friends;
